@@ -1,0 +1,24 @@
+node_modules
+# Keep environment variables out of version control
+
+# env
+.env
+.env.local
+.env.production
+
+#prima
+/generated/prisma
+prisma/migrations/dev.db*
+
+# logs
+*.log
+npm-debug.log*
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
