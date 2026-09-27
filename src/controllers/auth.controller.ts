@@ -2,10 +2,11 @@ import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 import prisma from '../lib/prisma'
 import { signAdminToken } from '../lib/jwt'
+import { asyncHandler } from '../lib/async-handler'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-export async function login(req: Request, res: Response) {
+export const login = asyncHandler(async (req: Request, res: Response) => {
   const { email, password } = req.body
 
   if (!email || !password) {
@@ -34,13 +35,13 @@ export async function login(req: Request, res: Response) {
   })
 
   res.json({ email: admin.email })
-}
+})
 
-export async function logout(_req: Request, res: Response) {
+export const logout = asyncHandler(async (_req: Request, res: Response) => {
   res.clearCookie('admin_token')
   res.json({ message: 'Sesión cerrada' })
-}
+})
 
-export async function me(req: Request, res: Response) {
+export const me = asyncHandler(async (req: Request, res: Response) => {
   res.json({ admin: (req as any).admin })
-}
+})

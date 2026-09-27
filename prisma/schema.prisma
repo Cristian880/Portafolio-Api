@@ -21,6 +21,8 @@ model Profile {
   title     String
   bio       String
   avatarUrl String?
+  phone       String?
+  address     String?
   email     String
   githubUrl String?
   linkedinUrl String?

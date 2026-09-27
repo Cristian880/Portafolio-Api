@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { ZodSchema } from 'zod'
 import { requireAuth } from '../middlewares/auth.middleware'
+import { asyncHandler } from './async-handler'
 
 interface PrismaDelegate {
   findMany: (args?: any) => Promise<any[]>
@@ -29,21 +30,21 @@ export function createCrudRouter<CreateBody, UpdateBody>(
 ): Router {
   const router = Router()
 
-  router.get('/', async (_req, res) => {
-    const items = await delegate.findMany({ orderBy: options.orderBy, include: options.include })
-    res.json(items)
-  })
+  router.get('/', asyncHandler(async (_req, res) => {
+  const items = await delegate.findMany({ orderBy: options.orderBy, include: options.include })
+  res.json(items)
+}))
 
-  router.get('/:id', async (req, res) => {
+  router.get('/:id', asyncHandler(async (req, res) => {
     const id = getIdParam(req.params.id)
     if (!id) return res.status(400).json({ error: 'ID inválido' })
 
     const item = await delegate.findUnique({ where: { id }, include: options.include })
     if (!item) return res.status(404).json({ error: 'No encontrado' })
     res.json(item)
-  })
+  }))
 
-  router.post('/', requireAuth, async (req, res) => {
+  router.post('/', requireAuth, asyncHandler(async (req, res) => {
     const result = options.createSchema.safeParse(req.body)
     if (!result.success) return res.status(400).json({ error: result.error.flatten() })
 
@@ -52,9 +53,9 @@ export function createCrudRouter<CreateBody, UpdateBody>(
       include: options.include,
     })
     res.status(201).json(item)
-  })
+  }))
 
-  router.put('/:id', requireAuth, async (req, res) => {
+  router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
     const id = getIdParam(req.params.id)
     if (!id) return res.status(400).json({ error: 'ID inválido' })
 
@@ -67,15 +68,15 @@ export function createCrudRouter<CreateBody, UpdateBody>(
       include: options.include,
     })
     res.json(item)
-  })
+  }))
 
-  router.delete('/:id', requireAuth, async (req, res) => {
+  router.delete('/:id', requireAuth, asyncHandler(async (req, res) => {
     const id = getIdParam(req.params.id)
     if (!id) return res.status(400).json({ error: 'ID inválido' })
 
     await delegate.delete({ where: { id } })
     res.status(204).send()
-  })
+  }))
 
   return router
 }
