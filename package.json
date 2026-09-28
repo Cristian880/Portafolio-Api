@@ -28,6 +28,7 @@
     "express-rate-limit": "^8.7.0",
     "jsonwebtoken": "^9.0.3",
     "react-router": "^8.4.0",
+    "resend": "^6.30.0",
     "zod": "^4.6.5",
     "zustand": "^5.0.15"
   },

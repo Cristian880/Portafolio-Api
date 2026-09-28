@@ -29,6 +29,14 @@ model Profile {
   updatedAt DateTime @updatedAt
 }
 
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  adminId   String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
 model Project {
   id           String    @id @default(cuid())
   title        String
