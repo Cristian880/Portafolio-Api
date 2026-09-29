@@ -8,25 +8,27 @@ datasource db {
 }
 
 model AdminUser {
-  id           String   @id @default(cuid())
-  email        String   @unique
-  passwordHash String
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id                 String   @id @default(cuid())
+  email              String   @unique
+  passwordHash       String
+  twoFactorSecret    String?
+  isTwoFactorEnabled Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 }
 
 model Profile {
-  id        String   @id @default(cuid())
-  fullName  String
-  title     String
-  bio       String
-  avatarUrl String?
+  id          String   @id @default(cuid())
+  fullName    String
+  title       String
+  bio         String
+  avatarUrl   String?
   phone       String?
   address     String?
-  email     String
-  githubUrl String?
+  email       String
+  githubUrl   String?
   linkedinUrl String?
-  updatedAt DateTime @updatedAt
+  updatedAt   DateTime @updatedAt
 }
 
 model PasswordResetToken {
@@ -38,17 +40,17 @@ model PasswordResetToken {
 }
 
 model Project {
-  id           String    @id @default(cuid())
-  title        String
-  description  String
-  imageUrl     String?
-  liveUrl      String?
-  repoUrl      String?
-  featured     Boolean   @default(false)
-  order        Int       @default(0)
-  skills       Skill[]   @relation("ProjectSkills")
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  imageUrl    String?
+  liveUrl     String?
+  repoUrl     String?
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  skills      Skill[]  @relation("ProjectSkills")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Experience {
