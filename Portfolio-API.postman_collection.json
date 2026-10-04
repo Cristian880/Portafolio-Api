@@ -61,12 +61,78 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Forget Password",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset Password",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Setup 2fa",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2fa Confirm",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login 2fa",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
         }
       ]
     },
     {
       "name": "Projects",
       "item": [
+        {
+          "name": "Create Project",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
         {
           "name": "List Projects",
           "request": {
@@ -80,17 +146,6 @@
         },
         {
           "name": "Get Project by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": ""
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Project",
           "request": {
             "method": "GET",
             "header": [],
@@ -128,6 +183,17 @@
       "name": "Experience",
       "item": [
         {
+          "name": "Create Experience",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
           "name": "List Experience,",
           "request": {
             "method": "GET",
@@ -140,17 +206,6 @@
         },
         {
           "name": "Get Experience by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": ""
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Experience",
           "request": {
             "method": "GET",
             "header": [],
@@ -188,6 +243,17 @@
       "name": "Skills",
       "item": [
         {
+          "name": "Create Skill",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
           "name": "List Skills",
           "request": {
             "method": "GET",
@@ -200,17 +266,6 @@
         },
         {
           "name": "Get Skill by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": ""
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Skill",
           "request": {
             "method": "GET",
             "header": [],

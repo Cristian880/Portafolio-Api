@@ -1,0 +1,13 @@
+node_modules
+.env
+.env.*
+!.env.example
+.git
+dist
+.vscode
+.idea
+*.log
+.claude
+.windsurf
+.agents
+skills-lock.json
